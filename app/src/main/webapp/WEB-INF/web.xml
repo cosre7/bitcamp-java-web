@@ -15,6 +15,10 @@
     <servlet-name>s02</servlet-name> <!-- 별명 -> 마음대로 하기 -->
     <servlet-class>com.eomcs.web.ex01.Servlet02</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>s03</servlet-name> <!-- 별명 -> 마음대로 하기 -->
+    <servlet-class>com.eomcs.web.ex01.Servlet03</servlet-class>
+  </servlet>
 <!-- 서블릿을 실행할 때 사용할 URL path를 설정 -->  
   <servlet-mapping>
     <servlet-name>s01</servlet-name> <!-- 위에서 정한 별명 사용 -->
@@ -23,6 +27,10 @@
   <servlet-mapping>
     <servlet-name>s02</servlet-name> 
     <url-pattern>/ex01/s02</url-pattern> <!-- url은 절대 겹치지 않게! -->
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>s03</servlet-name> 
+    <url-pattern>/ex01/s03</url-pattern> 
   </servlet-mapping>
   
 </web-app>
