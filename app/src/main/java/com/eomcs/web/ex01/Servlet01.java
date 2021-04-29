@@ -7,21 +7,28 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-//dkdkdk
-// 서블릿 클래스를 만든 후,
-// 배치 파일(web.xml; DD 파일)에 서블릿 정보를 등록해야만 실행될 수 있다.
-// => WEB-INF/web.xml
-// => DD File: Deployment Descriptor File
-// => 배치 예:
-// <servlet>
-//   <servlet-name>서블릿별명</servlet-name>
-//   <servlet-class>서블릿 클래스의 전체이름(패키지명 포함)</servlet-class>
-// </servlet>
+
+// 서블릿 클래스를 만든 후, 서블릿 컨테이너에 등록해야만 사용할 수 있다.
+// 등록 방법 1)
+//   웹 애플리케이션 배치 파일(web.xml; DD 파일)에 서블릿 정보를 등록하기
+//   => WEB-INF/web.xml
+//   => DD File: Deployment Descriptor File
+//   => 배치 예:
+//      <servlet>
+//          <servlet-name>서블릿별명</servlet-name>
+//          <servlet-class>서블릿 클래스의 전체이름(패키지명 포함)</servlet-class>
+//      </servlet>
 //
-// <servlet-mapping>
-//   <servlet-name>서블릿별명</servlet-name>
-//   <url-pattern>클라이언트에서 요청할 때 사용할 URL(/로 시작해야 한다.)</url-pattern>
-// </servlet-mapping>
+//      <servlet-mapping>
+//          <servlet-name>서블릿별명</servlet-name>
+//          <url-pattern>클라이언트에서 요청할 때 사용할 URL(/로 시작해야 한다.)</url-pattern>
+//      </servlet-mapping>
+// 등록 방법 2)
+//   서블릿 클래스 선언부에 @WebServlet 애노테이션을 붙인다.
+//   => @WebServlet
+//      @WebServlet(URL)
+//      @WebServlet(value=URL)
+//      @WebServlet(value=urlPatterns={"URL1", "URL2", ...}
 //
 // 서블릿 실행 방법
 // => http://서버주소:포트번호/웹애플리케이션이름/서블릿URL
