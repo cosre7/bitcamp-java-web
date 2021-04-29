@@ -6,6 +6,11 @@
   version="4.0"
   metadata-complete="false">
 
+<!-- 리스너 등록 -->
+  <listener>
+    <listener-class>com.eomcs.web.ex02.Listener01</listener-class>
+  </listener>
+
 <!-- 필터 등록 -->
   <filter>
     <filter-name>f01</filter-name>
