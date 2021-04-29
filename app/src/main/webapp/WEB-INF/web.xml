@@ -6,6 +6,18 @@
   version="4.0"
   metadata-complete="false">
 
+<!-- 필터 등록 -->
+  <filter>
+    <filter-name>f01</filter-name>
+    <filter-class>com.eomcs.web.ex02.Filter01</filter-class>
+  </filter>
+
+<!-- 필터를 적용할 URL 설정 -->
+  <filter-mapping>
+    <filter-name>f01</filter-name>
+    <url-pattern>/ex02/*</url-pattern>
+  </filter-mapping>
+
 <!-- 서블릿 등록 -->
   <servlet>
     <servlet-name>s01</servlet-name> <!-- 별명 -> 마음대로 하기 -->
