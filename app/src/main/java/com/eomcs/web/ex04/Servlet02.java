@@ -87,12 +87,12 @@ public class Servlet02 extends GenericServlet {
 // POST /java-web/ex04/s2 HTTP/1.1
 // Host: localhost:8080
 // Connection: keep-alive
-// Content-Length: 33
+// Content-Length: 33 //GET에는 없는 값
 // Pragma: no-cache
 // Cache-Control: no-cache
 // Origin: http://localhost:8080
 // Upgrade-Insecure-Requests:1
-// Content-Type: application/x-www-form-urlencoded
+// Content-Type: application/x-www-form-urlencoded //GET에는 없는 값
 // User-Agent: Mozilla/5.0 (Macintosh; Intel MacOS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36
 // Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,
 // Referer:http://localhost:8080/java-web/ex04/test02.html
@@ -102,15 +102,15 @@ public class Servlet02 extends GenericServlet {
 // name=ABC%EA%B0%80%EA%B0%81&age=20
 //
 
-// GET 요청 vs POST 요청
+// GET 요청 vs POST 요청 // 중요!
 // 1) 전송 데이터 용량
 // => GET
-//    - 대부분의 웹서버가 request-line과 헤더의 크기를 8KB로 제한하고 있다.
+//    - 대부분의 웹서버가 request-line과 헤더의 크기를 8KB로 제한하고 있다. // 대량의 데이터를 보낼 수 없다
 //    - 따라서 긴 게시글과 같은 큰 용량의 데이터를 GET 방식으로 전송할 수 없다.
 // => POST
 //    - HTTP 요청 헤더 다음에 message-body 부분에 데이터를 두기 때문에
 //      용량의 제한 없이 웹 서버에 전송할 수 있다.
-//    - 즉 웹 서버가 제한하지 않는 한 전송 데이터의 크기에 제한이 없다.
+//    - 즉 웹 서버가 제한하지 않는 한 전송 데이터의 크기에 제한이 없다. // 서버가 허용하는 한도 내까지 가능
 //    - 웹 서버가 제한한다?
 //      특정 사이트에서는 게시글의 크기나 첨부파일의 크기에 제한을 둔다.
 // => 용도
