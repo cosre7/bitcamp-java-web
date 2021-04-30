@@ -55,7 +55,8 @@ public class Servlet02 extends GenericServlet {
     // 반드시 getParamter()를 최초로 호출하기 전이어야 한다.
     // 한 번 getParameter()를 호출한 후에는 소용없다.
     //
-    req.setCharacterEncoding("UTF-8");
+    req.setCharacterEncoding("UTF-8"); // 무조건 getParameter 전에! //URL 디코딩 후에 나온 값은 UTF-8이야!
+    // 필터에서 실행하게 해버리면 더 편하다. -> get방식이든 post 방식이든 사용!
 
     String age = req.getParameter("age");
     String name = req.getParameter("name");
@@ -68,7 +69,7 @@ public class Servlet02 extends GenericServlet {
 
     char[] chars = name.toCharArray();
     for (char c : chars) {
-      out.printf("%x\n", (int) c);
+      out.printf("%04x\n", (int) c);
     }
   }
 }
@@ -118,7 +119,7 @@ public class Servlet02 extends GenericServlet {
 //    - 게시글 등록이나 첨부파일 같은 큰 데이터 전송에는 POST 요청으로 보낸다.
 //
 // 2) 바이너리 데이터 전송
-// => GET
+// => GET -> 데이터를 URL 뒤에 붙여서 보낸다
 //    - request-URI가 텍스트로 되어 있다.
 //      따라서 바이너리 데이터를 request-URI에 붙여서 전송할 수 없다.
 //    - 그럼에도 꼭 GET 요청으로 바이너리 데이터를 보내고자 한다면?
@@ -126,7 +127,7 @@ public class Servlet02 extends GenericServlet {
 //      예를 들어 바이너리 데이터를 Base64로 인코딩하여 텍스트를 만든 후에
 //      GET 요청 방식대로 이름=값 으로 보내면 된다.
 //    - 그래도 결국 용량 제한 때문에 바이너리 데이터를 GET 요청으로 전송하는 것은 바람직하지 않다.
-// => POST
+// => POST -> 데이터를 message body에 보낸다
 //    - 이 방식에서도 이름=값 형태로는 바이너리 값을 전송할 수 없다.
 //    - multipart 형식을 사용하면 바이너리 데이터를 보낼 수 있다.
 //    - 보통 파일 업로드를 구현할 때 이 multipart 전송 방식으로 사용한다.
@@ -138,7 +139,7 @@ public class Servlet02 extends GenericServlet {
 //    - 웹 브라우저는 주소 창에 입력한 값을 내부 캐시에 보관해 두기 때문이다.
 //    - 그러나 게시물 번호 같은 데이터는 URL에 포함되어야 한다.
 //      그래야 다른 사람에게 URL과 함께 데이터를 보낼 수 있다.
-// => POST
+// => POST -> 보안상 더 낫다
 //    - mesage-body 부분에 데이터가 있기 때문에
 //      웹 브라우저는 캐시에 보관하지 않는다.
 //    - 또한 주소 창에도 보이지 않는다.
