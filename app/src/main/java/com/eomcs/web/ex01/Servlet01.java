@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 // 등록 방법 1)
 //   웹 애플리케이션 배치 파일(web.xml; DD 파일)에 서블릿 정보를 등록하기
 //   => WEB-INF/web.xml
-//   => DD File: Deployment Descriptor File
+//   => DD File: Deployment Descriptor File // 보통 DD 파일이라고 부르니 기억해두기!
 //   => 배치 예:
 //      <servlet>
 //          <servlet-name>서블릿별명</servlet-name>
@@ -23,6 +23,7 @@ import javax.servlet.ServletResponse;
 //          <servlet-name>서블릿별명</servlet-name>
 //          <url-pattern>클라이언트에서 요청할 때 사용할 URL(/로 시작해야 한다.)</url-pattern>
 //      </servlet-mapping>
+//
 // 등록 방법 2)
 //   서블릿 클래스 선언부에 @WebServlet 애노테이션을 붙인다.
 //   => @WebServlet
@@ -38,12 +39,12 @@ import javax.servlet.ServletResponse;
 // 1) 웹 브라우저가 서블릿 실행을 요청한다.
 // 2) 서블릿 컨테이너는 해당 URL의 서블릿 객체를 찾는다.
 // 3.1) 서블릿 객체를 아직 만들지 않았다면,
-// => 서블릿 클래스에 대해 인스턴스를 생성한다.
-// => 생성자를 호출한다.
-// => init()를 호출한다.
-// => service()를 호출한다.
+//      => 서블릿 클래스에 대해 인스턴스를 생성한다.
+//      => 생성자를 호출한다.
+//      => init()를 호출한다.
+//      => service()를 호출한다.
 // 3.2) 서블릿 객체가 생성되어 있다면,
-// => service()를 호출한다.
+//      => service()를 호출한다.
 //
 // 만약 웹 애플리케이션이 종료된다면
 // => 생성된 모든 서블릿들의 destroy() 메서드를 호출한다.
