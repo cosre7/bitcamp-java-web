@@ -19,7 +19,7 @@ import javax.servlet.annotation.WebServlet;
 //@WebServlet("/ex01/s04")
 //@WebServlet(value="/ex01/s04")
 //@WebServlet(urlPatterns="/ex01/s04") // 배열이지만 값이 한개라서 중괄호 생략가능!
-//@WebServlet(urlPatterns={"/ex01/s04"})
+//@WebServlet(urlPatterns={"/ex01/s04"}) // 한개의 값도 중괄호 안에 넣을 수 있다.
 @WebServlet(urlPatterns={"/ex01/s04", "/ex01/hoho", "/hoho2"}) // 여러 url 한번에 실행 가능!
 public class Servlet04 extends GenericServlet {
 
