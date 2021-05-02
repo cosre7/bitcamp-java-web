@@ -74,7 +74,7 @@ public class Servlet01 implements Servlet {
   }
 
   @Override
-  public void init(ServletConfig config) throws ServletException {
+  public void init(ServletConfig config) throws ServletException { // 1번으로 호출
     // 서블릿 객체를 생성한 후 생성자 다음에 이 메서드가 호출된다.
     // => 서블릿을 실행할 때 사용할 자원을 이 메서드에서 준비한다.
     // => 파라미터로 받은 ServletConfig 객체는 인스턴스 변수에 보관해 두었다가 필요할 때 사용한다.
@@ -85,7 +85,7 @@ public class Servlet01 implements Servlet {
   }
 
   @Override
-  public void service(ServletRequest req, ServletResponse res)
+  public void service(ServletRequest req, ServletResponse res) // 실행 요청 시마다 계속 호출
       throws ServletException, IOException {
     // 클라이언트가 이 서블릿의 실행을 요청할 때마다 호출된다.
     // 클라이언트가 요청한 작업을 수행한다.
@@ -93,7 +93,7 @@ public class Servlet01 implements Servlet {
   }
 
   @Override
-  public void destroy() {
+  public void destroy() { // 종료할 때 호출
     // 웹 애플리케이션을 종료할 때(서버 종료 포함) 호출된다.
     // => 이 서블릿이 만든 자원을 해제하는 코드를 이 메서드에 둔다.
     System.out.println("Servlet01.destroy()");
