@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 //    doGet(), doPost(), doHead(), doPut() 등을 호출하게 프로그램 되어 있다.
 // => HTTP 프로토콜을 다루려면 GenericServlet을 상속 받지 말고 
 //    HttpServlet을 상속 받아 서블릿 클래스를 만들라!
+// 실무에서 가장 많이 사용되는 방법이다.
 // 
 public class Servlet03 extends HttpServlet {
 
