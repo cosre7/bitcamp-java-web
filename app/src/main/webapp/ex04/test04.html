@@ -13,8 +13,8 @@ form 태그의 enctype 속성을 "multipart/form-data" 로 변경하라.
 현재 HTML의 URL을 기준으로 요청 URL을 상대적으로 기술할 수 있다.
 <form action="s4" 
       method="post"
-      enctype="multipart/form-data">
-  이름: <input type="text" name="name"><br>
+      enctype="multipart/form-data"> <!-- enctype을 생략하는 디폴트는 application/x-www-form-urlencoded -->
+  이름: <input type="text" name="name"><br> <!-- 자기가 속해있는 form의 값만! form 속에 form 은 금물! -->
   나이: <input type="number" name="age"><br>
   사진: <input type="file" name="photo"><br>
   <input type="submit" value="전송">
