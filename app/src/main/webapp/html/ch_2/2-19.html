@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML TEXT Basic Page</title>
+</head>
+<body>
+    <!-- colspan, rowspan : 위에서 아래 방향으로 점유해 나간다! -->
+    <table border="1">
+        <tr> <!-- 첫번째 행 -->
+            <th colspan="3">Table Data</th> <!-- cloumn(행) -> 3칸 -->
+            <th rowspan="3">Table Data</th> <!-- row(열) -> 3칸 -->
+        </tr>
+        <tr> <!-- 두번째 행 -->
+            <td>Table Data</td> <!-- 첫번째 컬럼 -->
+            <td rowspan="2">Table Data</td> <!-- 두번째 컬럼 ->2개 행 차지 -->
+            <td>Table Data</td>
+            <td>ok</td><!-- 이미 칸이 차지되어있다면 건너뛰고 다음 칸으로 간다. -->
+        </tr>
+        <tr> <!-- 세번째 행 -->
+            <td>Table Data</td>
+            <td>Table Data</td>
+        </tr>
+        <tr> <!-- 네번째 행 -->
+            <td rowspan="2" colspan="3">Table Data</td>
+            <td>Table Data</td>
+        </tr>
+        <tr> <!-- 다섯번째 행 -->
+            <td>Table Data</td>
+        </tr>
+    </table>
+</body>
+</html>
