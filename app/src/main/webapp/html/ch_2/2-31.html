@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video.js Basic</title>
+    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <!-- 자바스크립트의 경우 끝태그 꼭 적어주기 -->
+</head>
+<body>
+    <video controls="controls" width="640" height="360" class="video-js" data-setup="{}">
+    <!-- class="video-js" : 스타일이 같게 하라! (스타일의 css 이름에는 -를 넣을 수 있고 넣는게 관례
+         data-setup="{}" : 스타일 조정 -->
+        <source src="Wildlife.mp4" type="video/mp4" />
+        <source src="Wildlife.webm" type="video/webm" />
+    </video>
+</body>
+</html>
