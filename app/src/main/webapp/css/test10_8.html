@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HTML</title>
+  <style>
+  /*
+    position: relative
+    => absolute나 fixed와 달리 공중부양시키지 않는다.
+    => 현재 자리를 유지한 상태에서 상,하,좌,우로 위치를 조정하고 싶을 때
+       사용한다.
+    => absolute 타입의 자식 태그의 기준으로 만들고 싶을 때
+      부모 태그를 relative로 지정한다.
+  */
+  body {
+    font-family: '맑은 고딕', 굴림체, 'Apple SD Gothic Neo', sans-serif;
+    font-size: medium;
+    border: 1px solid black;
+    margin: 10px;
+  }
+
+  address {
+    display: inline;
+    font-style: normal;
+  }
+
+  #bitcamp {
+    background-color: gray;
+    color: white;
+    border-radius: 4px;
+    padding: 3px 3px 0px 3px;
+  }
+
+  #company {
+    color: navy;
+  }
+
+  #menu {
+    background-color: lightgray;
+    font-size: 1.2em;
+    width: 200px;
+    border: 1px solid red;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+
+  #menu ul > li {
+    font-weight: bold;
+  }
+
+  #menu ol {
+    font-weight: normal;
+  }
+
+  #content {
+    font-family: 바탕체, 궁서체, AppleMyungjo, serif;
+    border: 1px solid red;
+    margin-left: 210px;
+    min-height: 430px;
+  }
+
+  #footer {
+    font-size: 80%; /* = 0.8em */
+    clear: left; /* 왼쪽에 이 태그의 내용을 가리는 것이 있다면
+                    그 아래로 위치하도록 이동시킨다.*/
+    text-align: center;
+    border: 1px solid red;
+  }
+
+  #footer > p {
+    font-style: italic;
+  }
+
+  #ad {
+    border: 5px solid orange;
+    position: fixed;
+    left: 35%;
+    top: 20%;
+  }
+
+  #ad > button {
+    background-color: red;
+    color: white;
+    border-style:none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+  }
+
+  #menu > img {
+    border: 1px solid navy;
+    position: relative;
+    left: -20px;
+    top: 30px;
+  }
+
+  #ad > img:hover {
+    position: relative;
+    /* left: 20px; */
+    top: -30px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <div id="menu">
+  <img src='data:image/jpeg;base64,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'/>
+  <ul>
+    <li class="c1">BITCamp</li>
+    <li class="c1">교육안내</li>
+    <li class="c1">교육과정</li>
+    <li class="c2">수강신청</li>
+    <li class="c2">온라인상담</li>
+    <li class="c2">커뮤니티
+      <ol>
+        <li>게시판</li>
+        <li>QnA</li>
+        <li>방명록</li>
+        <li>FAQ</li>
+      </ol>
+    </li>
+  </ul>
+  아이디: <input type="text" name="username"><br>
+  암호: <input type="password" name="pwd"><br>
+  <button>로그인</button>
+  <button>회원가입</button><br>
+  <a href="http://www.facebook.com/bit">페이스북</a>
+  <a href="http://www.google.com/bit">구글</a>
+  <a href="http://www.twitter.com/bit">트위터</a>
+  </div>
+
+  <div id="content">
+  <h1>2017년 여름방학 특강</h1>
+  <p>
+  IT 분야로의 성공적인 취업과 창업준비!!<br>
+  이젠 실무프로젝트로 승부한다.
+  </p>
+  <ul>
+    <li>자바 웹개발자 양성과정</li>
+    <li>IoT 개발자 양성과정</li>
+    <li>윈도우 프로그래머 과정</li>
+    <li>빅데이터 프로페셔널 과정</li>
+  </ul>
+  비트캠프는 우수한 개발자를 양성합니다.
+  .<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+  .<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>.<br>
+  </div>
+
+  <div id="footer">
+  <span id="bitcamp">비트캠프</span> |
+  <address>서울시 서초구 서초동 비트아카데미빌딩 3층</address>
+  <span id="company">(주)비트컴퓨터 서초지점</span>
+  <p>Copyright by BITCamp</p>
+  </div>
+
+<div id="ad">
+<button id="closeBtn" type="button">X</button>
+<img src="http://data.siwonschool.com/banner/img/www/2017/03/31/bimg_src_1490956508.jpg">
+<img src="http://data.siwonschool.com/banner/img/www/2017/03/31/bimg_src_1490927237.jpg">
+<img src="http://data.siwonschool.com/banner/img/www/2017/04/04/bimg_src_1491271205.jpg">
+</div>
+
+<script>
+var btn = document.getElementById("closeBtn");
+btn.addEventListener('click', function() {
+  var adDiv = document.getElementById("ad");
+  adDiv.style.display = "none";
+});
+</script>
+</body>
+</html>
+
+
+
+
+<!-- -->
