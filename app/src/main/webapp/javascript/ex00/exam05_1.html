@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>exam</title>
+</head>
+<body>
+  <h1>요점 정리 - 5.HTML 태그와 DOM 트리 객체 응용</h1>
+  <form>
+    <div id="inputNameContainer">
+    <div class="inputName">
+      <span class="name">이름1</span>: <input type="text" name="name1"><br>
+    </div>
+    </div>
+    <button id="btnAddName" type="button">추가</button><br>
+    <button id="btn1">확인</button>
+  </form>
+<script>
+var inputNameIndex = 1;
+var btnAddName = document.getElementById("btnAddName"); 
+// getElementById("ㅇㅇ"): ㅇㅇ아이디를 가진 태그를 찾아서 태그의 객체를 리턴
+var inputNameContainer = document.querySelector("#inputNameContainer");
+// querySelector: css 문법으로 사용
+// inputNameContainer 안의 모든 태그
+var inputNameDiv = document.querySelector(".inputName");
+// inputName 안의 모든 태그
+
+btnAddName.onclick = function() {
+	inputNameIndex++;
+	var e = inputNameDiv.cloneNode(true);
+	e.querySelector(".name").innerHTML = "이름" + inputNameIndex; // span 태그 사이
+	e.querySelector("input").name = "name" + inputNameIndex;
+	inputNameContainer.appendChild(e);
+};
+// 페이지 소스보기 -> 서버에서 받아온 최초의 페이지만 보임
+// 동적으로 변하는 소스 -> 개발자도구 -> Elements 에서 확인 가능
+</script>  
+</body>
+</html>
+
+
+
+
+
+
+
+
