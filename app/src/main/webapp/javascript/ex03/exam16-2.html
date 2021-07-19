@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex03</title>
+</head>
+<body>
+<h1>자바스크립트 글로벌 함수 - setInterval()</h1>
+<script>
+"use strict"
+// 일정 시간이 경과할 때마다 특정 함수를 계속 호출하게 할 수 있다. 
+// => window.setInterval(함수, 경과시간);
+var count = 0;
+function f1() { 
+    console.log("f1()....." + (++count));
+    if (count >= 10) {
+      clearInterval(timerId); // 지정한 interval 타이머를 멈추게 한다. // window.timerId 도 가능
+    }
+}
+
+// f1() 함수를 2초 마다 호출하라!
+var timerId = window.setInterval(f1, 2000);
+// 2초마다 f1을 Interver 하라고 실행하는 함수라면 리턴되지 않을 것. -> 2초마다 f1을 Interval 하라고 등록(설정)하는 함수
+// 자바스크립트는 함수를 호출할 때 그 함수에 문제가 있으면 에러가 발생한다.
+// 
+</script>
+
+</body>
+</html>
+
+
+
+
+
