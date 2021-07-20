@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex07</title>
+</head>
+<body>
+<h1>AJAX - GET 요청</h1>
+
+<h2>일반 GET 요청</h2>
+<form action="test2.jsp" method="get">
+이름: <input type="text" name="name"><br>
+나이: <input type="text" name="age"><br>
+<button type="submit">등록</button> 
+<button type="reset">초기화</button>
+</form>
+
+<hr>
+
+<h2>AJAX GET 요청</h2>
+<button id="btn1">요청</button><br>
+<textarea id="ta" cols="80" rows="10"></textarea>
+
+<script>
+"use strict"
+
+var ta = document.querySelector("#ta"); // ta 라는 id 를 가진 태그를 찾아서 var ta 라고 해라
+
+document.querySelector("#btn1").onclick = () => {
+    var xhr = new XMLHttpRequest(); 
+    // XMLHttpRequest() 생성자를 통해서 AJAX 요청 처리에 관련된(필요한) 변수와 메서드를 구비한 객체를 리턴받는다 
+    
+    // GET 요청은 데이터를 URL에 붙인다. 
+    xhr.open("GET", "test2.jsp?name=홍길동&age=20", false); // false : 동기
+    // ? 뒤의 문자들 = 쿼리스트링
+    xhr.send(); // 동기 방식이기 때문에 기다리고 있다가 보내진다.
+    ta.value = xhr.responseText;
+};
+
+</script>
+</body>
+</html>
+
+
+
+
+
