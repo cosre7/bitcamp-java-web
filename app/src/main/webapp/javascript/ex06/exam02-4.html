@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ex06</title>
+</head>
+<body>
+<h1>이벤트 - 이벤트 정보 다루기 IV</h1>
+<button id="btn1">버튼1</button><br>
+
+<script>
+"use strict"
+
+// addEventListener() 사용
+document.getElementById("btn1").addEventListener("click", function(e) {
+	console.log(
+		e.altKey, e.ctrlKey, e.button, 
+		e.offsetX, e.offsetY, 
+		e.clientX, e.clientY, 
+		e.screenX, e.screenY)
+});
+/// 파라미터 e를 넘겨주기 싫다?
+		/// argument[0].altkey 등등으로 설정하면 되지만 굳이..?
+</script>
+</body>
+</html>
+
+
+
+
+
