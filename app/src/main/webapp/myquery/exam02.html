@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myquery</title>
+</head>
+<body>
+<h1>myquery 만들기 2단계 - jQuery(element)</h1>
+<table border="1">
+<thead>
+    <tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<button id="btn1">데이터 가져오기!</button>
+
+<script> // selector을 찾아서 list에 넣는다
+function jQuery(p) {
+	var el;
+	if (p.charAt(0) == '<') { // 예) <table> /// 첫 문자가 <일 때  -> <로 시작할 때
+		const template = document.createElement("template"); 
+	// const 말고 var로 해도 되지만 template을 로컬변수로 만들기 위해 const로 한다.
+		template.innerHTML = p;
+		el = template.content.children; // tempTag : p태그의 자식 태그
+	} else { /// 그 외 -> 첫 문자가 <가 아닐 때
+	  el = document.querySelectorAll(p);
+	}
+	
+	return el; // el : element list
+}
+
+var $ = jQuery; // jQuery 함수 주소를 $에 담는다 -> 같은 주소를 가리킨다. => $는 함수 이름일 뿐
+</script>
+
+
+<script>
+"use strict"
+
+var tbody = $("tbody")[0]; // 배열(리스트)이기 때문에 번호 지정해준다.
+
+$("#btn1")[0].onclick = () => { /// 데이터 가져오기!를 누르면
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                var arr = JSON.parse(xhr.responseText);
+                for (var b of arr) {
+                  var tr = $("<tr></tr>")[0]; // <tr> 태그가 담긴 컬렉션이 리턴될 것 -> 0번째를 꺼낸다.
+                  tr.innerHTML = "<td>" + b.no + "</td>" + 
+                     "<td>" + b.title + "</td>" + 
+                     "<td>" + b.writer + "</td>" +
+                     "<td>" + b.viewCnt + "</td>";
+                  tbody.appendChild(tr);
+                  
+                }
+            }
+        }
+    };
+    xhr.open("GET", "test.jsp", true);
+    xhr.send();
+};
+
+</script>
+</body>
+</html>
+
+
+
+
+
