@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>myquery</title>
+</head>
+<body>
+<h1>jquery 적용하기</h1> <!-- call chain: 바톤을 이어받아서 계속해서 호출 -->
+<table border="1">
+<thead>
+    <tr><th>번호</th><th>제목</th><th>작성자</th><th>조회수</th></tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<button id="btn1">데이터 가져오기!</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- 
+https://javascript-minifier.com/ 에서 자바스크립트 코드 복사
+-> Minify 클릭
+-> Copy to Clipboard
+-> 같은 코드이지만 파일 용량이 굉장히 줄여진 상태의 js 파일을 얻을 수 있다.
+! 디버깅이 힘들기 때문에 개발하는 동안에는 쓰지 말고
+  배포할 때 사용하자!
+ -->
+
+<script>
+"use strict"
+///$("#btn1").on('click', 함수);
+
+$("#btn1").click(() => { /// btn1을 눌렀을 때 click 이벤트에 대한 리스너를 등록하는 함수
+	  $.ajax("test.jsp", {
+		  dataType: "json",
+		   /*/// 많~~이 줄여본 코드. 이건 좀 비추.. 다음 사람 어떡해
+		  success: arr => 
+        arr.forEach(b => $("<tr></tr>").html("<td>" + b.no + "</td>" +  /// tr태그 만들고 html 설정해서 appendTo로 부모 설정
+					               "<td>" + b.title + "</td>" + 
+					               "<td>" + b.writer + "</td>" +
+					               "<td>" + b.viewCnt + "</td>").appendTo('tbody')
+        )
+        */
+        /// 강사님이라면 하실 코드
+        success(arr) { 
+        arr.forEach(b => $("<tr></tr>").html("<td>" + b.no + "</td>" +  /// tr태그 만들고 html 설정해서 appendTo로 부모 설정
+                         "<td>" + b.title + "</td>" + 
+                         "<td>" + b.writer + "</td>" +
+                         "<td>" + b.viewCnt + "</td>").appendTo('tbody'));
+        }
+	  });
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
